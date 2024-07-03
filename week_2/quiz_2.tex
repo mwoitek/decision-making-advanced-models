@@ -1,0 +1,253 @@
+% Created 2024-07-03 Wed 20:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\date{}
+\title{Quiz: A Car Manufacturing Decision}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Quiz: A Car Manufacturing Decision},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:org63c7681}
+
+\textbf{Answer:} 10\\
+
+First of all, I believe this question is not well formulated. As we'll see, the
+mathematical problem we actually solve has 4 variables. To reach this
+conclusion, I could have introduced as many auxiliary variables as I wanted or
+none at all. So there is no unique answer to this question. All I can say is
+that at least 4 variables are required. Then the only option that makes sense
+is 10.
+\section*{Problem 2}
+\label{sec:orgaf27610}
+
+\textbf{Answer:} \(400S_1+600S_2+150\mathrm{IC}_1+150\mathrm{IT}_1+150\mathrm{IC}_2+150\mathrm{IT}_2\)\\
+
+In this problem, the cost has two components. First, there's the cost of the
+steel needed to manufacture the vehicles. Then there's the holding cost.\\
+We begin by computing the steel cost. To meet the demand, \(C_1\) cars are
+manufactured during month 1, and \(C_2\) cars are manufactured during month 2.
+Since every car requires 1 ton of steel, \(C_1\) and \(C_2\) are also the
+number of tons of steel that need to be purchased during months 1 and 2,
+respectively. This means that \(400C_1\) will be spent in the first month, and
+\(600C_2\) will be spent in the second month. Therefore, the steel cost
+corresponding to the cars is \(400C_1+600C_2\).\\
+A similar argument can be used to determine the steel cost related to the
+trucks. The only difference is that a truck requires 2 tons of steel. Then we
+need \(2T_1\) tons for month 1, and \(2T_2\) tons for month 2. This leads to
+a total steel cost of \(800T_1+1200T_2\). By adding this cost to the one
+associated with the cars, we obtain the total steel cost:
+\begin{equation}
+C_s=400C_1+600C_2+800T_1+1200T_2.
+\end{equation}
+We can rewrite this expression in terms of \(S_1\) and \(S_2\) as follows:
+\begin{align}
+  \begin{split}
+    C_s&=400C_1+600C_2+800T_1+1200T_2\\
+    &=400C_1+800T_1+600C_2+1200T_2\\
+    &=400(C_1+2T_1)+600(C_2+2T_2)\\
+    &=400S_1+600S_2,
+  \end{split}
+\end{align}
+where we've used \(S_1=C_1+2T_1\) and \(S_2=C_2+2T_2\).\\
+Next, consider the holding cost. At the end of month 1, the number of vehicles
+in inventory is \(\mathrm{IC}_1+\mathrm{IT}_1\). The corresponding holding
+cost is \(150(\mathrm{IC}_1+\mathrm{IT}_1)\). Similarly, for month 2, there's
+a cost of \(150(\mathrm{IC}_2+\mathrm{IT}_2)\). Therefore, the total holding
+cost can be written as
+\begin{align}
+  \begin{split}
+    C_h&=150(\mathrm{IC}_1+\mathrm{IT}_1)+150(\mathrm{IC}_2+\mathrm{IT}_2)\\
+    &=150\mathrm{IC}_1+150\mathrm{IT}_1+150\mathrm{IC}_2+150\mathrm{IT}_2.
+  \end{split}
+\end{align}
+Finally, we can write down the objective function. It is given by the sum of the
+two components \(C_s\) and \(C_h\):
+\begin{align}
+  \begin{split}
+    Z&=C_s+C_h\\
+    &=400S_1+600S_2+150\mathrm{IC}_1+150\mathrm{IT}_1+150\mathrm{IC}_2+150\mathrm{IT}_2.
+  \end{split}
+\end{align}
+\section*{Problem 3}
+\label{sec:org79f90ea}
+
+\textbf{Answer:} \(C_1+T_1\leq 1000\), \(C_2+T_2\leq 1000\)\\
+
+At most 1,000 vehicles can be produced every month. During the first month,
+\(C_1\) cars and \(T_1\) trucks are manufactured. Then, for month 1, we have
+the constraint
+\begin{equation}
+C_1+T_1\leq 1000.
+\end{equation}
+Similarly, for the second month, we have
+\begin{equation}
+C_2+T_2\leq 1000.
+\end{equation}
+\section*{Problem 4}
+\label{sec:org8e8c157}
+
+\textbf{Answer:} \(C_1+2T_1=S_1\), \(C_2+2T_2=S_2\)\\
+
+The reasoning behind this answer is in the solution to Problem 2.
+\section*{Problem 5}
+\label{sec:org68d8c2e}
+
+\textbf{Answer:} \(200+C_1=800+\mathrm{IC}_1\)\\
+
+At the end of month 1, there will be \(200+C_1\) cars (200 cars in inventory +
+cars produced). 800 of those cars are for meeting the demand for that month. The
+rest will be put in the inventory. Therefore, the following must hold:
+\begin{equation}
+200+C_1=800+\mathrm{IC}_1.
+\end{equation}
+\section*{Problem 6}
+\label{sec:org77d3ac5}
+
+\textbf{Answer:} \(4C_1-6T_1\geq 0\)\\
+
+Recall that each car gets 20 mpg, and each truck gets 10 mpg. Then, for the
+first month, the total mpg can be written as \(20C_1+10T_1\). Moreover, during
+that month, \(C_1+T_1\) vehicles are manufactured. This allows us to express
+the average mpg as
+\begin{equation*}
+\frac{20C_1+10T_1}{C_1+T_1}.
+\end{equation*}
+This average is required to be at least 16. Hence:
+\begin{align}
+  \begin{split}
+    \frac{20C_1+10T_1}{C_1+T_1}&\geq 16\\
+    20C_1+10T_1&\geq 16(C_1+T_1)\\
+    20C_1+10T_1&\geq 16C_1+16T_1\\
+    4C_1-6T_1&\geq 0.
+  \end{split}
+\end{align}
+\section*{Problem 7}
+\label{sec:org2c7a048}
+
+\textbf{Answer:} \(S_1\leq 1500\), \(S_2\leq 1500\)
+\section*{Problem 8}
+\label{sec:org784518f}
+
+\textbf{Answer:} Purchase 1400 tons of steel in month 1 and 700 tons in month 2.\\
+
+Before we try to find the optimal solution, let us finish the mathematical
+formulation of this problem. We need to reduce the number of variables we're
+dealing with. It seems convenient to keep only the variables \(C_1\), \(T_1\),
+\(C_2\) and \(T_2\). We already know how to use these variables to obtain
+\(S_1\) and \(S_2\). Next, we derive similar results for the other auxiliary
+variables:
+\begin{itemize}
+\item \(\mathrm{IC}_1\):
+\begin{align}
+  \begin{split}
+    200+C_1&=800+\mathrm{IC}_1\\
+    C_1&=600+\mathrm{IC}_1\\
+    \mathrm{IC}_1&=C_1-600
+  \end{split}
+\end{align}
+\item \(\mathrm{IT}_1\):
+\begin{align}
+  \begin{split}
+    100+T_1&=400+\mathrm{IT}_1\\
+    T_1&=300+\mathrm{IT}_1\\
+    \mathrm{IT}_1&=T_1-300
+  \end{split}
+\end{align}
+\item \(\mathrm{IC}_2\):
+\begin{align}
+  \begin{split}
+    \mathrm{IC}_1+C_2&=300+\mathrm{IC}_2\\
+    C_1-600+C_2&=300+\mathrm{IC}_2\\
+    \mathrm{IC}_2&=C_1+C_2-900
+  \end{split}
+\end{align}
+\item \(\mathrm{IT}_2\):
+\begin{align}
+  \begin{split}
+    \mathrm{IT}_1+T_2&=300+\mathrm{IT}_2\\
+    T_1-300+T_2&=300+\mathrm{IT}_2\\
+    \mathrm{IT}_2&=T_1+T_2-600
+  \end{split}
+\end{align}
+\end{itemize}
+The next step is to rewrite the objective function. We already have a convenient
+formula for \(C_s\). We only need to derive a new expression for \(C_h\). By
+using the above equations, we get
+\begin{align}
+  \begin{split}
+    C_h&=150(\mathrm{IC}_1+\mathrm{IT}_1+\mathrm{IC}_2+\mathrm{IT}_2)\\
+    &=150(C_1-600+T_1-300+C_1+C_2-900+T_1+T_2-600)\\
+    &=150(2C_1+2T_1+C_2+T_2-2400)\\
+    &=300C_1+300T_1+150C_2+150T_2-360000.
+  \end{split}
+\end{align}
+With the aid of this result, we can express \(Z\) as follows:
+\begin{align}
+  \begin{split}
+    Z&=400C_1+600C_2+800T_1+1200T_2+300C_1+300T_1+150C_2+150T_2-360000\\
+    &=700C_1+750C_2+1100T_1+1350T_2-360000.
+  \end{split}
+\end{align}
+We want to minimize this function subject to the following constraints:
+\begin{align}
+  \begin{split}
+    C_1&\geq 600\\
+    T_1&\geq 300\\
+    C_1+C_2&\geq 900\\
+    T_1+T_2&\geq 600\\
+    C_1+T_1&\leq 1000\\
+    C_2+T_2&\leq 1000\\
+    C_1+2T_1&\leq 1500\\
+    C_2+2T_2&\leq 1500\\
+    2C_1-3T_1&\geq 0\\
+    2C_2-3T_2&\geq 0
+  \end{split}
+\end{align}
+The first four inequalities guarantee that the demand for each month will be
+met. The fifth and sixth constraints guarantee that no more than 1,000 vehicles
+will be produced every month. The next pair of inequalities guarantee that at
+most 1,500 tons of steel will be purchased each month. The last two constraints
+correspond to the requirement for the average mpg.\\
+We solve this optimization problem in a separate Python script.
+\section*{Problem 9}
+\label{sec:org1c82937}
+
+\textbf{Answer:} Produce 600 cars and 400 trucks in month 1, and produce 300 cars and
+200 trucks in month 2.
+\section*{Problem 10}
+\label{sec:orgacf3879}
+
+\textbf{Answer:} \$995,000\\
+
+This answer represents the minimum cost. There isn't enough information to
+compute profit.
+\end{document}
