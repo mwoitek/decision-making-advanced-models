@@ -1,0 +1,185 @@
+% Created 2024-07-03 Wed 01:57
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\date{}
+\title{Banking Loan Decision}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Banking Loan Decision},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:org31c63f0}
+
+\textbf{Answer:} 5\\
+
+There are five decision variables, one for each type of loan.
+\section*{Problem 2}
+\label{sec:orge0bffc5}
+
+\textbf{Answer:} \(0.026x_1\)\\
+
+Let's denote the expected net return by \(R_1\). This value can be expressed as
+\begin{equation}
+R_1=r_1 x_1(1-p_1)-x_1 p_1,
+\end{equation}
+where \(r_1\) represents the interest rate, and \(p_1\) is the probability
+of bad debt. By substituting the values of these quantities into the last
+equation, we get
+\begin{align}
+  \begin{split}
+    R_1&=r_1 x_1(1-p_1)-x_1 p_1\\
+    &=0.14(1-0.1)x_1-0.1x_1\\
+    &=0.126x_1-0.1x_1\\
+    &=0.026x_1.
+  \end{split}
+\end{align}
+\section*{Problem 3}
+\label{sec:orgd74a25f}
+
+\textbf{Answer:} \(0.0509x_2\)\\
+
+Let's denote the expected net return by \(R_2\). This value can be expressed as
+\begin{equation}
+R_2=r_2 x_2(1-p_2)-x_2 p_2,
+\end{equation}
+where \(r_2\) represents the interest rate, and \(p_2\) is the probability
+of bad debt. By substituting the values of these quantities into the last
+equation, we get
+\begin{align}
+  \begin{split}
+    R_2&=r_2 x_2(1-p_2)-x_2 p_2\\
+    &=0.13(1-0.07)x_2-0.07x_2\\
+    &=0.1209x_2-0.07x_2\\
+    &=0.0509x_2.
+  \end{split}
+\end{align}
+\section*{Problem 4}
+\label{sec:org209078e}
+
+\textbf{Answer:}
+\begin{equation*}
+\max\quad Z=0.026x_1+0.0509x_2+0.0864x_3+0.06875x_4+0.078x_5
+\end{equation*}
+\vspace{0.1cm}
+
+To derive the formula for the objective function, we need to perform
+calculations similar to the ones in Problems 2 and 3. Specifically, we have to
+compute the expected net return for the three remaining types of loan. We won't
+present the details here. However, it's straightforward to show that the
+expected returns associated with Home, Farm and Commercial loans can be
+expressed as follows:
+\begin{itemize}
+\item Home: \(0.0864x_3\)
+\item Farm: \(0.06875x_4\)
+\item Commercial: \(0.078x_5\)
+\end{itemize}
+Then the total expected return is
+\begin{equation}
+Z=0.026x_1+0.0509x_2+0.0864x_3+0.06875x_4+0.078x_5.
+\end{equation}
+It should be clear that the bank wants to maximize its return. Therefore, we
+need to find \(\max Z\).
+\section*{Problem 5}
+\label{sec:org612217b}
+
+\textbf{Answer:} \(x_1+x_2+x_3+x_4+x_5\leq 10\)\\
+
+The total amount the bank will spend in loans is \(x_1+x_2+x_3+x_4+x_5\). At
+most, the total spent will be \(\$ 10\) million. Since the unit of all \(x_i\)
+is \(\$ 1\) million, we can write this constraint as follows:
+\begin{equation}
+x_1+x_2+x_3+x_4+x_5\leq 10.
+\end{equation}
+\section*{Problem 6}
+\label{sec:org8f7664c}
+
+\textbf{Answer:} \(0.3x_1+0.3x_2+0.3x_3-0.7x_4-0.7x_5\leq 0\)\\
+
+The amount allocated to Farm and Commercial loans is \(x_4+x_5\). This amount
+should be at least
+\begin{equation*}
+0.3\left(x_1+x_2+x_3+x_4+x_5\right).
+\end{equation*}
+Therefore, this constraint can be written as
+\begin{align}
+  \begin{split}
+    x_4+x_5&\geq 0.3\left(x_1+x_2+x_3+x_4+x_5\right)\\
+    x_4+x_5&\geq 0.3x_1+0.3x_2+0.3x_3+0.3x_4+0.3x_5\\
+    0.3x_1+0.3x_2+0.3x_3+0.3x_4+0.3x_5&\leq x_4+x_5\\
+    0.3x_1+0.3x_2+0.3x_3-0.7x_4-0.7x_5&\leq 0
+  \end{split}
+\end{align}
+\section*{Problem 7}
+\label{sec:orgaba22a5}
+
+\textbf{Answer:} \(0.4x_1+0.4x_2-0.6x_3\leq 0\)\\
+
+Recall that the amount spent in Home loans is \(x_3\). The amount allocated to
+Personal, Car and Home loans is given by \(x_1+x_2+x_3\). Since Home loans
+must equal at least 40\% of this sum, the following must hold:
+\begin{align}
+  \begin{split}
+    x_3&\geq 0.4\left(x_1+x_2+x_3\right)\\
+    x_3&\geq 0.4x_1+0.4x_2+0.4x_3\\
+    0.4x_1+0.4x_2+0.4x_3&\leq x_3\\
+    0.4x_1+0.4x_2-0.6x_3&\leq 0
+  \end{split}
+\end{align}
+\section*{Problem 8}
+\label{sec:org80fa2fe}
+
+\textbf{Answer:} \(0.06x_1+0.03x_2-0.01x_3+0.01x_4-0.02x_5\leq 0\)\\
+
+For the amount \(x_i\), we expect the bank to lose \(x_i p_i\) due to bad
+debt. Then the total loss can be expressed as \(x_1 p_1+x_2 p_2+x_3 p_3+x_4 p_4+x_5 p_5\).
+By using the probability values, we can rewrite this loss: \(0.1x_1+0.07x_2+0.03x_3+0.05x_4+0.02x_5\).
+The overall ratio of bad debts corresponds to the total loss divided by the
+total spent. Since this ratio is not to exceed 0.04, we have
+\begin{align}
+  \begin{split}
+    \frac{0.1x_1+0.07x_2+0.03x_3+0.05x_4+0.02x_5}{x_1+x_2+x_3+x_4+x_5}&\leq 0.04\\
+    0.1x_1+0.07x_2+0.03x_3+0.05x_4+0.02x_5&\leq 0.04x_1+0.04x_2+0.04x_3+0.04x_4+0.04x_5\\
+    0.06x_1+0.03x_2-0.01x_3+0.01x_4-0.02x_5&\leq 0
+  \end{split}
+\end{align}
+\section*{Problem 9}
+\label{sec:org7ef28a5}
+
+\textbf{Answer:} \(\$ 0.8388\) million
+\section*{Problem 10}
+\label{sec:orga403908}
+
+\textbf{Answer:} 2
+\section*{Problem 11}
+\label{sec:orgbb6ad80}
+
+\textbf{Answer:} \(\$ 7\) million in home loans and \(\$ 3\) million in commercial loans
+\end{document}

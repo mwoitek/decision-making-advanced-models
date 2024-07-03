@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pulp = "*"
+ipython = "*"
+matplotlib = "*"
 
 [dev-packages]
 
