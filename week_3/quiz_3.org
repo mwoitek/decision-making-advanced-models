@@ -1,0 +1,162 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Quiz: An Airline Pilot Staffing Decision
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* 12\\
+
+For every month, we need two decision variables: the number of pilots who are
+hired, and the number of pilots who are fired. Since we're considering 6
+months, there are 12 decision variables.
+
+* Problem 2
+
+*Answer:* \( 120+x_{H_1}-x_{F_1} \)\\
+
+At the beginning of the first month, the company has 120 pilots. \( x_{H_1} \)
+pilots are hired, and \( x_{F_1} \) pilots are fired. Therefore, the number of
+available pilots is
+\begin{equation*}
+120+x_{H_1}-x_{F_1}.
+\end{equation*}
+
+* Problem 3
+
+*Answer:* \( 120+x_{H_1}-x_{F_1}\geq 100 \)\\
+
+In month 1, the company needs at least 100 pilots. We've just derived an
+expression for the number of available pilots. By using this result, we can
+write
+\begin{equation}
+120+x_{H_1}-x_{F_1}\geq 100.
+\end{equation}
+
+* Problem 4
+
+*Answer:* ~D5:I6~
+
+* Problem 5
+
+*Answer:* \( 4(120+x_{H_1}-x_{F_1})+5x_{H_1}+3x_{F_1} \)\\
+
+To write down a formula for this cost, we'll express all the amounts that
+represent money in units of $1,000. Every pilot who is still a staff member has
+to be paid his salary of $4k. The number of such pilots has been computed in
+Problem 2. By using that result, we can conclude that the cost related to
+salaries is \( 4(120+x_{H_1}-x_{F_1}) \). Furthermore, each of the \( x_{H_1} \)
+pilots who were hired represents a cost of $5k. Then the corresponding cost is
+\( 5x_{H_1} \). Finally, there's the cost of $3k for every pilot who were fired.
+In total, this cost is \( 3x_{F_1} \). By adding it all up, we get
+\begin{equation*}
+4(120+x_{H_1}-x_{F_1})+5x_{H_1}+3x_{F_1}.
+\end{equation*}
+
+* Problem 6
+
+*Answer:* ~C11+D5-D6~
+
+* Problem 7
+
+*Answer:* ~D11*$C$13+D5*$C$8+D6*$C$9~
+
+* Problem 8
+
+*Answer:* $3740\\
+
+To answer this question and the ones that follow, first we need to complete the
+mathematical formulation of this problem. We already know what happens during
+the first month. So consider month 2 next. At the beginning of this month, there
+are \( N_1=120+x_{H_1}-x_{F_1} \) pilots working for the company. \( x_{F_2} \)
+of them will be fired, and \( x_{H_2} \) new pilots will be hired. Then, in
+month 2, there will be \( N_2=N_1+x_{H_2}-x_{F_2} \) available pilots.\\
+As we have done for month 1, we can derive the constraint for \( N_2 \) and
+compute the corresponding contribution to the cost. To obtain the constraint, we
+can do something very similar to what we've done in Problem 3. What we get is
+\begin{equation}
+N_1+x_{H_2}-x_{F_2}\geq 110.
+\end{equation}
+The cost for the second month can be calculated as we've done in Problem 5. Very
+similar reasoning allows us to express this cost as follows:
+\begin{equation}
+4(N_1+x_{H_2}-x_{F_2})+5x_{H_2}+3x_{F_2}.
+\end{equation}
+We could repeat this process four more times to get the desired results for the
+remaining months. We won't present the details, and simply write down these
+results. First consider the number \( N_i \) of pilots available in month \( i \):
+\begin{align}
+  \begin{split}
+    N_1&=120+x_{H_1}-x_{F_1},\\
+    N_2&=N_1+x_{H_2}-x_{F_2},\\
+    N_3&=N_2+x_{H_3}-x_{F_3},\\
+    N_4&=N_3+x_{H_4}-x_{F_4},\\
+    N_5&=N_4+x_{H_5}-x_{F_5},\\
+    N_6&=N_5+x_{H_6}-x_{F_6}.
+  \end{split}
+\end{align}
+By introducing \( N_0=120 \), we can summarize this set of equations as follows:
+\begin{equation}
+N_i=N_{i-1}+x_{H_i}-x_{F_i},\qquad i=1,\ldots,6.
+\end{equation}
+There's a constraint for each of these numbers. These constraints guarantee
+that, during months 1-6, the company has enough pilots. These inequalities are
+the following:
+\begin{align}
+  \begin{split}
+    N_1&\geq 100,\\
+    N_2&\geq 110,\\
+    N_3&\geq 115,\\
+    N_4&\geq 140,\\
+    N_5&\geq 110,\\
+    N_6&\geq 200.
+  \end{split}
+\end{align}
+Finally, consider the cost \( C_i \) for the \( i \)-th month. This amount can
+be written as
+\begin{equation}
+C_i=4N_i+5x_{H_i}+3x_{F_i},\qquad i=1,\ldots,6.
+\end{equation}
+The objective function for this problem corresponds to the total cost. The total
+is obtained from adding up all the \( C_i \):
+\begin{equation}
+Z=\sum_{i=1}^6 C_i=\sum_{i=1}^6(4N_i+5x_{H_i}+3x_{F_i}).
+\end{equation}
+We need to minimize this function subject to the 6 constraints listed above, and
+to non-negativity constraints for all the decision variables \( x_{H_i} \) and
+\( x_{F_i} \).
+
+* Problem 9
+
+*Answer:* 3
+
+* Problem 10
+
+*Answer:* 25
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# End:
