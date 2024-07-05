@@ -1,0 +1,106 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Quiz: Electronics Product Mix Decisions
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* 3\\
+
+There are three decision variables, one for each type of product.
+
+* Problem 2
+
+*Answer:*
+\begin{equation*}
+\max\quad Z=75x_1+50x_2+35x_3
+\end{equation*}
+#+BEGIN_SRC latex
+\vspace{0.1cm}
+#+END_SRC
+The profit per TV set is $75. Since \( x_1 \) TVs are produced, the profit
+related to this product is \( 75x_1 \). The same logic allows us to determine
+the profit related to stereos and speakers. The stereos generate a profit of
+\( 50x_2 \), and the speakers generate a profit of \( 35x_3 \). Therefore, the
+total profit can be expressed as
+\begin{equation}
+Z=75x_1+50x_2+35x_3.
+\end{equation}
+For this problem, this is the objective function. Since it represents profit, we
+obviously want to maximize this function. In other words, we want to find
+\( \max Z \).
+
+* Problem 3
+
+*Answer:* \( x_1+x_2\leq 450 \)\\
+
+Each TV set requires 1 chassis. The same is true for each stereo. On the other
+hand, speakers don't require a chassis. Then the total number of chassis the
+company needs is given by \( x_1+x_2 \). Since it's not possible to use more
+than 450 chassis, the following must hold:
+\begin{equation}
+x_1+x_2\leq 450.
+\end{equation}
+
+* Problem 4
+
+*Answer:* \( 2x_1+x_2+x_3\leq 600 \)\\
+
+Each TV set requires 2 electronic parts. For each stereo/speaker, we need a
+single electronic part. Then the total number of such parts the company needs is
+given by \( 2x_1+x_2+x_3 \). Since it's not possible to use more than 600
+electronic parts, the following must hold:
+\begin{equation}
+2x_1+x_2+x_3\leq 600.
+\end{equation}
+
+* Problem 5
+
+*Answer:* ~SUMPRODUCT($D$5:$F$5,D7:F7)~
+
+* Problem 6
+
+*Answer:* ~SUMPRODUCT(D5:F5,D12:F12)~
+
+* Problem 7
+
+*Answer:* 200 units of TV sets, 200 units of stereos, and none of speakers
+
+* Problem 8
+
+*Answer:* Chassis, Picture tubes, and Power supply
+
+* Problem 9
+
+*Answer:* $25000
+
+* Problem 10
+
+*Answer:* All of the above.
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# End:
